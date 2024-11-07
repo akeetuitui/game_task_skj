@@ -74,7 +74,6 @@ class Game {
       if (action == '1') {
         // 공격 선택
         player.attackMonster(monster);
-        print('${player.name}(이)가 ${monster.name}에게 ${player.attack}의 데미지를 입혔습니다.');
       } else if (action == '2') {
         // 방어 선택: 몬스터의 공격 메서드 호출 & 캐릭터의 방어 메서드 호출
         int recoverHealth = monster.attackPlayer(); 
@@ -90,7 +89,6 @@ class Game {
         print('${monster.name}의 턴');
         int monsterDamage = monster.attackPlayer(); // 몬스터 공격메서드를 호출하여 공격력 값 저장
         player.health -= monsterDamage; // 플레이어 체력 잃음
-        print('${monster.name}(이)가 ${player.name}에게 ${monsterDamage}의 데미지를 입혔습니다.');
       }
 
       // 매 턴마다 상태 출력

@@ -44,9 +44,9 @@ Future<List<Monster>> loadMonstersAsync() async {
       String name = stats[0];
       int health = int.parse(stats[1]);
       int attack = int.parse(stats[2]);
-      int defense = int.parse(stats[3]);
 
-      monsters.add(Monster(name: name, health: health, attack: attack, defense: defense));
+      // 방어력 값을 명시하지 않으므로 자동으로 0이 할당됨
+      monsters.add(Monster(name: name, health: health, attack: attack));
     }
 
     return monsters;
