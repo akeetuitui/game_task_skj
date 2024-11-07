@@ -1,2 +1,2 @@
-# Monster_game_kj
-Flutter 앱창업 부트캠프 3주차. 👾 몬스터 물리치기 RPG게임
+A sample command-line application with an entrypoint in `bin/`, library code
+in `lib/`, and example unit test in `test/`.

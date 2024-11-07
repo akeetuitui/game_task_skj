@@ -9,9 +9,8 @@ class Game {
   int targetMonsters; // 목표 몬스터 수
   int monstersDefeated = 0;
 
-  Game(this.player, this.monsterList,
-      this.targetMonsters); //Game 클래스의 생성자. 생성자를 통해 플레이어, 몬스터 리스트, 목표 몬스터 수를 초기화
-
+  Game(this.player, this.monsterList, this.targetMonsters); //Game 클래스의 생성자. 생성자를 통해 플레이어, 몬스터 리스트, 목표 몬스터 수를 초기화
+  
   //1. 게임시작 메서드
   void startGame() {
     // 게임 시작 시 캐릭터의 이름을 출력
@@ -25,7 +24,7 @@ class Game {
       battle(currentMonster);
 
       if (player.health <= 0) {
-        print('${player.name}가 쓰러졌다ㅠㅠ 게임 오버!');
+        print('캐릭터가 쓰러졌습니다. 게임 오버!');
         break;
       }
 
@@ -39,7 +38,7 @@ class Game {
 
     // 설정된 목표 몬스터 수만큼 물리쳤을 때 승리 결과 출력
     if (monstersDefeated == targetMonsters) {
-      print('축하합니다! 당신은 모든 몬스터를 물리친 영웅이야.');
+      print('축하합니다! 모든 몬스터를 물리쳤습니다.');
     }
   }
 
@@ -50,8 +49,7 @@ class Game {
     if (input?.toLowerCase() == 'y') {
       try {
         final file = File('result.txt');
-        String content =
-            '캐릭터 이름: ${player.name}\n남은 체력: ${player.health}\n게임 결과: $result\n';
+        String content = '캐릭터 이름: ${player.name}\n남은 체력: ${player.health}\n게임 결과: $result\n';
         file.writeAsStringSync(content);
         print('결과가 result.txt 파일에 저장되었습니다.');
       } catch (e) {
@@ -76,16 +74,11 @@ class Game {
       if (action == '1') {
         // 공격 선택
         player.attackMonster(monster);
-        // 공격 후 플레이어와 몬스터 상태 출력
-        player.showStatus();
-        monster.showStatus();
       } else if (action == '2') {
         // 방어 선택: 몬스터의 공격 메서드 호출 & 캐릭터의 방어 메서드 호출
-        int recoverHealth = monster.attackPlayer();
+        int recoverHealth = monster.attackPlayer(); 
         player.defend(recoverHealth); // 방어메서드 체력 회복
-        // 공격 후 플레이어와 몬스터 상태 출력
-        player.showStatus();
-        monster.showStatus();
+        print('${player.name}(이)가 방어 태세를 취하여 ${recoverHealth}만큼 체력을 얻었습니다.');
       } else {
         print('잘못된 입력입니다. 다시 선택해주세요.');
         continue; // 유효한 입력이 나올 때까지 루프를 반복
@@ -96,8 +89,6 @@ class Game {
         print('${monster.name}의 턴');
         int monsterDamage = monster.attackPlayer(); // 몬스터 공격메서드를 호출하여 공격력 값 저장
         player.health -= monsterDamage; // 플레이어 체력 잃음
-        // 공격 결과 출력
-        print('${monster.name}(이)가 ${player.name}에게 $monsterDamage의 데미지를 입혔습니다.');
       }
 
       // 매 턴마다 상태 출력
@@ -110,12 +101,11 @@ class Game {
       monstersDefeated++; // 처치한 몬스터 수 증가(초기값=0)
       monsterList.remove(monster); // 몬스터 리스트에서 몬스터 삭제
     }
-  }
+}
 
   //3. 랜덤몬스터 메서드
   Monster getRandomMonster() {
     Random rand = Random();
-    return monsterList[
-        rand.nextInt(monsterList.length)]; // 인덱스 범위 내의 무작위 인덱스 반환
+    return monsterList[rand.nextInt(monsterList.length)]; // 인덱스 범위 내의 무작위 인덱스 반환
   }
 }
