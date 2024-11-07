@@ -47,5 +47,5 @@ String _getValidatedPlayerName() {
 bool _isValidName(String name) {
   // 한글, 영문 대소문자만 허용하는 정규표현식
   RegExp regex = RegExp(r'^[a-zA-Z가-힣]+$');
-  return regex.hasMatch(name); // 특수문자, 숫포함, 빈 문자열의 경우 flase 반환
+  return regex.hasMatch(name); // 특수문자, 숫자, 빈 문자열의 경우 flase 반환
 }
