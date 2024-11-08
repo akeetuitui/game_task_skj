@@ -1,10 +1,10 @@
-# Project
+# What is this?
 **몬스터를 물리치는 RPG 게임** 
 몬스터와 싸우고, 승리를 거둬보세요!
 
 
 
-# Function
+# About this project
 **✅ 기본 기능**
  - 플레이어 이름 입력
  - 플레이어의 상태: 체력/공격력/방어력
