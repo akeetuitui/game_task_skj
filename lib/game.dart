@@ -29,6 +29,13 @@ class Game {
         break;
       }
 
+      // 목표 몬스터 수에 도달했는지 확인
+      if (monstersDefeated >= targetMonsters) {
+        print('축하합니다! 모든 몬스터를 물리쳤습니다.');
+        saveResult("승리");
+        break;
+      }
+
       print('다음 몬스터와 싸우시겠습니까? (y/n): ');
       String? input = stdin.readLineSync();
       if (input?.toLowerCase() != 'y') {
@@ -97,7 +104,8 @@ class Game {
         int monsterDamage = monster.attackPlayer(); // 몬스터 공격메서드를 호출하여 공격력 값 저장
         player.health -= monsterDamage; // 플레이어 체력 잃음
         // 공격 결과 출력
-        print('${monster.name}(이)가 ${player.name}에게 $monsterDamage의 데미지를 입혔습니다.');
+        print(
+            '${monster.name}(이)가 ${player.name}에게 $monsterDamage의 데미지를 입혔습니다.');
       }
 
       // 매 턴마다 상태 출력

@@ -18,7 +18,7 @@ void main() async {
   List<Monster> monsters = await loadMonstersAsync();
 
   // 목표 몬스터 수 설정
-  const int targetMonsters = 3; // 여기서 목표 몬스터 수를 미리 설정
+  const int targetMonsters = 1; // 여기서 목표 몬스터 수를 미리 설정
 
   if (player != null && monsters.isNotEmpty) {
     print('캐릭터와 몬스터 데이터를 성공적으로 불러왔습니다!');
