@@ -25,7 +25,7 @@ class Game {
       battle(currentMonster);
 
       if (player.health <= 0) {
-        print('${player.name}가 쓰러졌다ㅠㅠ 게임 오버!');
+        print('${player.name}(이)가 쓰러졌다ㅠㅠ 게임 오버!');
         break;
       }
 
